@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app
+  name: node-api-azure
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: node-app
+      app: node-api-azure
   template:
     metadata:
       labels:
-        app: node-app
+        app: node-api-azure
     spec:
       containers:
-      - name: node-app
-        image: registry.digitalocean.com/digitaloceanregistry/node-app:latest
+      - name: node-api-azure
+        image: nodeapi.azurecr.io/ContainerRegistry/node-api-azure:latest
         ports:
           - containerPort: 8080
         envFrom:
           - secretRef:
               name: app-secrets
       imagePullSecrets:
-        - name: registry-digitaloceanregistry
+        - name: registry-ContainerRegistry

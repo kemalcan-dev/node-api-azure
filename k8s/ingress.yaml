@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - api.calindari.com
+      - api.kcglobal.eu
       secretName: node-app-tls
   rules:
-    - host: api.calindari.com
+    - host: api.kcglobal.eu
       http:
         paths:
           - path: /
